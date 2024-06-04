@@ -1,0 +1,8 @@
+prefix=/home/rml/jajaman_ws/install
+
+Name: centerline_projector
+Description: Description of centerline_projector
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

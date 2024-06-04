@@ -1,0 +1,2 @@
+any_point_visualizer:centerline_projector:pure_pursuit:test
+-DCATKIN_DEVEL_PREFIX=/home/rml/jajaman_ws/devel -DCMAKE_INSTALL_PREFIX=/home/rml/jajaman_ws/install -G Unix Makefiles

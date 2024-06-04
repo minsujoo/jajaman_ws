@@ -1,0 +1,41 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/opt/ros/noetic/include/**",
+        "/home/rml/catkin_ws/devel/include/**",
+        "/home/rml/jajaman_ws/src/any_point_visualizer/include/**",
+        "/home/rml/catkin_ws/src/rpg_dvs_ros/davis_ros_driver/include/**",
+        "/home/rml/catkin_ws/src/rpg_dvs_ros/dvs_calibration/include/**",
+        "/home/rml/catkin_ws/src/rpg_dvs_ros/dvs_renderer/include/**",
+        "/home/rml/catkin_ws/src/rpg_dvs_ros/dvs_ros_driver/include/**",
+        "/home/rml/catkin_ws/src/rpg_dvs_ros/dvxplorer_ros_driver/include/**",
+        "/home/rml/catkin_ws/src/erp_demo/include/**",
+        "/home/rml/catkin_ws/src/erp_driver/include/**",
+        "/home/rml/catkin_ws/src/imu_tools/imu_complementary_filter/include/**",
+        "/home/rml/catkin_ws/src/imu_tools/imu_filter_madgwick/include/**",
+        "/home/rml/catkin_ws/src/imu_vn_100/include/**",
+        "/home/rml/catkin_ws/src/loam_velodyne/include/**",
+        "/home/rml/catkin_ws/src/scout_ros/scout_base/include/**",
+        "/home/rml/jajaman_ws/src/test/include/**",
+        "/home/rml/catkin_ws/src/ugv_sdk/include/**",
+        "/home/rml/catkin_ws/src/velodyne/velodyne_driver/include/**",
+        "/home/rml/catkin_ws/src/velodyne/velodyne_laserscan/include/**",
+        "/home/rml/catkin_ws/src/velodyne/velodyne_pcl/include/**",
+        "/home/rml/catkin_ws/src/velodyne/velodyne_pointcloud/include/**",
+        "/home/rml/catkin_ws/src/vlp16/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

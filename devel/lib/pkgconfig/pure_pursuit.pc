@@ -1,0 +1,8 @@
+prefix=/home/rml/jajaman_ws/devel
+
+Name: pure_pursuit
+Description: Description of pure_pursuit
+Version: 0.0.0
+Cflags: -I/home/rml/jajaman_ws/src/pure_pursuit/include
+Libs: -L${prefix}/lib -lpure_pursuit
+Requires: roscpp std_msgs geometry_msgs
