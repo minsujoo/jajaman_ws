@@ -1,0 +1,2 @@
+any_map_visualizer:centerline_projector:centerline_projector_xy:pure_pursuit:test_cp:vesc_commander
+-DCATKIN_DEVEL_PREFIX=/home/dony/jajaman_ws/devel -DCMAKE_INSTALL_PREFIX=/home/dony/jajaman_ws/install -G Unix Makefiles
