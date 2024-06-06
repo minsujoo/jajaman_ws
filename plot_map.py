@@ -13,6 +13,7 @@ import numpy as np
 
 # file_path = 'general_centerline.csv'
 file_path = 'centerline.csv'
+file_path = '0.5_modified3_centerline.csv'
 
 ##########################
 ##########################
