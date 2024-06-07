@@ -1,0 +1,8 @@
+prefix=/home/jms/jajaman_ws/devel
+
+Name: final_race
+Description: Description of final_race
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: roscpp rospy std_msgs

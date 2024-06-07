@@ -1,4 +1,4 @@
-prefix=/home/dony/jajaman_ws/devel
+prefix=/home/jms/jajaman_ws/devel
 
 Name: any_map_visualizer
 Description: Description of any_map_visualizer

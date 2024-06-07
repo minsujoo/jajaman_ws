@@ -1,8 +1,0 @@
-prefix=/home/dony/jajaman_ws/install
-
-Name: test_cp
-Description: Description of test_cp
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

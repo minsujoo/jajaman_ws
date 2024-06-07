@@ -1,8 +1,0 @@
-prefix=/home/dony/jajaman_ws/install
-
-Name: centerline_projector_xy
-Description: Description of centerline_projector_xy
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

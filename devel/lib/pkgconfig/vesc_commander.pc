@@ -1,4 +1,4 @@
-prefix=/home/dony/jajaman_ws/devel
+prefix=/home/jms/jajaman_ws/devel
 
 Name: vesc_commander
 Description: Description of vesc_commander

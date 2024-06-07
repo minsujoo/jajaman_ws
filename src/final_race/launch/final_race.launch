@@ -1,0 +1,24 @@
+<launch>
+  <arg name="csv_file" default="centerline.csv" />
+  
+  <!-- centerline_projector_node 실행 -->
+  <node name="centerline_projector_node" pkg="centerline_projector" type="centerline_projector_node" output="screen" />
+
+  <!-- lookahead_point_generator 실행 -->
+  <node name="lookahead_point_generator" pkg="pure_pursuit" type="lookahead_point_generator" output="screen">
+    <param name="csv_file" value="$(arg csv_file)" />
+  </node>
+
+  <!-- our_odom_node 실행 -->
+  <node name="our_odom_node" pkg="our_odom" type="our_odom_node" output="screen" />
+
+  <!-- speed_decider_node 실행 -->
+  <node name="speed_decider_node" pkg="speed_decider" type="speed_decider_node" output="screen" />
+
+  <!-- pure_pursuit 실행 -->
+  <node name="pure_pursuit" pkg="pure_pursuit" type="pure_pursuit" output="screen" />
+
+  <!-- vesc_commander_node 실행 -->
+  <node name="vesc_commander_node" pkg="vesc_commander" type="vesc_commander_node" output="screen" />
+</launch>
+
