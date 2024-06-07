@@ -81,6 +81,7 @@ pure_pursuit/CMakeFiles/lookahead_point_generator.dir/src/lookahead_point_genera
  /opt/ros/noetic/include/ros/wall_timer.h
  /opt/ros/noetic/include/ros/wall_timer_options.h
  /opt/ros/noetic/include/rosconsole/macros_generated.h
+ /opt/ros/noetic/include/std_msgs/Float64.h
  /opt/ros/noetic/include/std_msgs/Int16.h
  /opt/ros/noetic/include/xmlrpcpp/XmlRpcDecl.h
  /opt/ros/noetic/include/xmlrpcpp/XmlRpcValue.h

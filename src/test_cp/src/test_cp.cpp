@@ -1,3 +1,7 @@
+/*
+Publish /projected_
+*/
+
 #include <ros/ros.h>
 #include <geometry_msgs/Pose.h>
 #include <vector>
@@ -11,7 +15,6 @@ ros::Publisher pub;
 
 // Create msgs to publish
 geometry_msgs::Pose pub_msg;
-
 
 // Function to read a CSV file into a vector of vector of doubles
 std::vector<std::vector<double>> readCSV(const std::string& filename) {
@@ -53,9 +56,6 @@ void subscribeCallback(const geometry_msgs::Pose::ConstPtr &msg)
     // Update msgs
     pub_msg.position.x = projected_x;
     pub_msg.position.y = projected_y;
-
-    // Input timestamp
-    // pub_msg.header.stamp = ros::Time::now();
 
     // Publish
     pub.publish(pub_msg);
@@ -112,7 +112,7 @@ int main(int argc, char** argv)
         double min_dist = 100000;
         double min_dist_x = 0;
         double min_dist_y = 0;
-        auto data = readCSV("general_centerline.csv");
+        auto data = readCSV("centerline.csv");
         for (int i = 0; i < data.size(); i++) {
             double xi = data[i][0];
             double yi = data[i][1];
@@ -126,7 +126,7 @@ int main(int argc, char** argv)
         std::cout << "Answer is " << min_dist_x << ", " << min_dist_y << " \n";
     }
 
-    auto data = readCSV("general_centerline.csv");
+    auto data = readCSV("centerline.csv");
     for (int i = 0; i < data.size(); i++) {
         for (int j = 0; j < data[i].size(); j++) {
             std::cout << data[i][j] << " ";

@@ -139,6 +139,7 @@ include_directories(
 add_executable(centerline_visualizer_node src/centerline_visualizer.cpp)
 add_executable(inner_wall_visualizer_node src/inner_wall_visualizer.cpp)
 add_executable(outer_wall_visualizer_node src/outer_wall_visualizer.cpp)
+add_executable(centerline_10_visualizer_node src/centerline_10_visualizer.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -154,6 +155,7 @@ add_executable(outer_wall_visualizer_node src/outer_wall_visualizer.cpp)
 target_link_libraries(centerline_visualizer_node ${catkin_LIBRARIES})
 target_link_libraries(inner_wall_visualizer_node ${catkin_LIBRARIES})
 target_link_libraries(outer_wall_visualizer_node ${catkin_LIBRARIES})
+target_link_libraries(centerline_10_visualizer_node ${catkin_LIBRARIES})
 
 #############
 ## Install ##

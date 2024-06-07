@@ -1,3 +1,8 @@
+/*
+Calculate steering angle to reach the lookahead point subscribed.
+Wheelbase and weight to the steer is defined as constant.
+*/
+
 #include <cmath>
 #include <mutex>
 #include "ros/ros.h"

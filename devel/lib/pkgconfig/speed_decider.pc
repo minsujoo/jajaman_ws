@@ -1,0 +1,8 @@
+prefix=/home/dony/jajaman_ws/devel
+
+Name: speed_decider
+Description: Description of speed_decider
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

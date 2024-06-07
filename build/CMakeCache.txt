@@ -406,6 +406,12 @@ any_map_visualizer_BINARY_DIR:STATIC=/home/dony/jajaman_ws/build/any_map_visuali
 //Value Computed by CMake
 any_map_visualizer_SOURCE_DIR:STATIC=/home/dony/jajaman_ws/src/any_map_visualizer
 
+//Value Computed by CMake
+any_point_visualizer_BINARY_DIR:STATIC=/home/dony/jajaman_ws/build/any_point_visualizer
+
+//Value Computed by CMake
+any_point_visualizer_SOURCE_DIR:STATIC=/home/dony/jajaman_ws/src/any_point_visualizer
+
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/noetic/share/catkin/cmake
 
@@ -423,6 +429,18 @@ centerline_projector_xy_SOURCE_DIR:STATIC=/home/dony/jajaman_ws/src/centerline_p
 
 //The directory containing a CMake configuration file for cpp_common.
 cpp_common_DIR:PATH=/opt/ros/noetic/share/cpp_common/cmake
+
+//Value Computed by CMake
+debug_speed_decider_BINARY_DIR:STATIC=/home/dony/jajaman_ws/build/debug_speed_decider
+
+//Value Computed by CMake
+debug_speed_decider_SOURCE_DIR:STATIC=/home/dony/jajaman_ws/src/debug_speed_decider
+
+//The directory containing a CMake configuration file for diagnostic_msgs.
+diagnostic_msgs_DIR:PATH=/opt/ros/noetic/share/diagnostic_msgs/cmake
+
+//The directory containing a CMake configuration file for diagnostic_updater.
+diagnostic_updater_DIR:PATH=/opt/ros/noetic/share/diagnostic_updater/cmake
 
 //The directory containing a CMake configuration file for gencpp.
 gencpp_DIR:PATH=/opt/ros/noetic/share/gencpp/cmake
@@ -491,6 +509,18 @@ gtest_hide_internal_symbols:BOOL=OFF
 //Dependencies for the target
 gtest_main_LIB_DEPENDS:STATIC=general;gtest;
 
+//Value Computed by CMake
+joy_BINARY_DIR:STATIC=/home/dony/jajaman_ws/build/joystick_drivers/joy
+
+//Value Computed by CMake
+joy_SOURCE_DIR:STATIC=/home/dony/jajaman_ws/src/joystick_drivers/joy
+
+//Value Computed by CMake
+joystick_drivers_BINARY_DIR:STATIC=/home/dony/jajaman_ws/build/joystick_drivers/joystick_drivers
+
+//Value Computed by CMake
+joystick_drivers_SOURCE_DIR:STATIC=/home/dony/jajaman_ws/src/joystick_drivers/joystick_drivers
+
 //Path to a library.
 lib:FILEPATH=/opt/ros/noetic/lib/libxmlrpcpp.so
 
@@ -499,6 +529,12 @@ message_runtime_DIR:PATH=/opt/ros/noetic/share/message_runtime/cmake
 
 //The directory containing a CMake configuration file for nav_msgs.
 nav_msgs_DIR:PATH=/opt/ros/noetic/share/nav_msgs/cmake
+
+//Value Computed by CMake
+our_odom_BINARY_DIR:STATIC=/home/dony/jajaman_ws/build/our_odom
+
+//Value Computed by CMake
+our_odom_SOURCE_DIR:STATIC=/home/dony/jajaman_ws/src/our_odom
 
 //Value Computed by CMake
 pure_pursuit_BINARY_DIR:STATIC=/home/dony/jajaman_ws/build/pure_pursuit
@@ -521,6 +557,15 @@ roscpp_traits_DIR:PATH=/opt/ros/noetic/share/roscpp_traits/cmake
 //The directory containing a CMake configuration file for rosgraph_msgs.
 rosgraph_msgs_DIR:PATH=/opt/ros/noetic/share/rosgraph_msgs/cmake
 
+//The directory containing a CMake configuration file for roslib.
+roslib_DIR:PATH=/opt/ros/noetic/share/roslib/cmake
+
+//The directory containing a CMake configuration file for roslint.
+roslint_DIR:PATH=/opt/ros/noetic/share/roslint/cmake
+
+//The directory containing a CMake configuration file for rospack.
+rospack_DIR:PATH=/opt/ros/noetic/share/rospack/cmake
+
 //The directory containing a CMake configuration file for rospy.
 rospy_DIR:PATH=/opt/ros/noetic/share/rospy/cmake
 
@@ -530,8 +575,23 @@ rostime_DIR:PATH=/opt/ros/noetic/share/rostime/cmake
 //The directory containing a CMake configuration file for sensor_msgs.
 sensor_msgs_DIR:PATH=/opt/ros/noetic/share/sensor_msgs/cmake
 
+//Value Computed by CMake
+spacenav_node_BINARY_DIR:STATIC=/home/dony/jajaman_ws/build/joystick_drivers/spacenav_node
+
+//Value Computed by CMake
+spacenav_node_SOURCE_DIR:STATIC=/home/dony/jajaman_ws/src/joystick_drivers/spacenav_node
+
+//Value Computed by CMake
+speed_decider_BINARY_DIR:STATIC=/home/dony/jajaman_ws/build/speed_decider
+
+//Value Computed by CMake
+speed_decider_SOURCE_DIR:STATIC=/home/dony/jajaman_ws/src/speed_decider
+
 //The directory containing a CMake configuration file for std_msgs.
 std_msgs_DIR:PATH=/opt/ros/noetic/share/std_msgs/cmake
+
+//The directory containing a CMake configuration file for std_srvs.
+std_srvs_DIR:PATH=/opt/ros/noetic/share/std_srvs/cmake
 
 //Value Computed by CMake
 test_cp_BINARY_DIR:STATIC=/home/dony/jajaman_ws/build/test_cp
@@ -547,6 +607,12 @@ vesc_commander_SOURCE_DIR:STATIC=/home/dony/jajaman_ws/src/vesc_commander
 
 //The directory containing a CMake configuration file for visualization_msgs.
 visualization_msgs_DIR:PATH=/opt/ros/noetic/share/visualization_msgs/cmake
+
+//Value Computed by CMake
+wiimote_BINARY_DIR:STATIC=/home/dony/jajaman_ws/build/joystick_drivers/wiimote
+
+//Value Computed by CMake
+wiimote_SOURCE_DIR:STATIC=/home/dony/jajaman_ws/src/joystick_drivers/wiimote
 
 //The directory containing a CMake configuration file for xmlrpcpp.
 xmlrpcpp_DIR:PATH=/opt/ros/noetic/share/xmlrpcpp/cmake
@@ -699,7 +765,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=16
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -776,6 +842,8 @@ GTEST_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 GTEST_MAIN_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GTEST_MAIN_LIBRARY_DEBUG
 GTEST_MAIN_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//Have include linux/joystick.h
+HAVE_LINUX_JOYSTICK_H:INTERNAL=1
 //ADVANCED property for variable: PYTHON_EXECUTABLE
 PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
 //This needs to be in PYTHONPATH when 'setup.py install' is called.

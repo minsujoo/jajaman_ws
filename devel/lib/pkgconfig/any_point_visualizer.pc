@@ -1,0 +1,8 @@
+prefix=/home/dony/jajaman_ws/devel
+
+Name: any_point_visualizer
+Description: Description of any_point_visualizer
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

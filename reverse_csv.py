@@ -1,9 +1,13 @@
+'''
+Invert the order of the "centerline.csv" file within the directory running this Python Script and save it as "reversed_centerline.csv".
+'''
+
 import pandas as pd
 
 # 원본 CSV 파일 경로
-input_file_path = 'original_general_centerline.csv'
+input_file_path = 'centerline.csv'
 # 뒤집힌 데이터 저장할 CSV 파일 경로
-output_file_path = 'general_centerline.csv'
+output_file_path = 'reversed_centerline.csv'
 
 # CSV 파일 읽기
 data = pd.read_csv(input_file_path, header=None, names=['x', 'y'])

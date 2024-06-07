@@ -2,7 +2,9 @@
 #include <visualization_msgs/Marker.h>
 #include <visualization_msgs/MarkerArray.h>
 #include <nav_msgs/Odometry.h>
-#include <geometry_msgs/Pose.h>
+#include <nav_msgs/Path.h>
+// #include <geometry_msgs/Pose.h>
+#include <geometry_msgs/Point.h>
 #include <std_msgs/Float64.h>
 #include <vector>
 #include <string>
@@ -11,7 +13,7 @@
 /scan
 /pf/pose/odom (nav_msgs/Odometry)
 /projected_position_index (std_msgs/Int16)
-/lookahead_point (geometry_msgs/Pose)
+/lookahead_point (geometry_msgs/Point)
 /speed
 centerline.csv
 inner_wall.csv
@@ -29,6 +31,7 @@ ros::Publisher p5_marker_pub;
 
 ros::Publisher path_pub;
 
+/*
 std::vector<std::vector<double>> centerline;
 std::vector<std::vector<double>> inner_wall;
 std::vector<std::vector<double>> outer_wall;
@@ -55,6 +58,7 @@ void readCSV(const std::string& filename, std::vector<std::vector<double>>& poin
 
     file.close();
 }
+*/
 
 /*
 struct Quaternion {
@@ -115,9 +119,9 @@ void p0Callback(const nav_msgs::Odometry::ConstPtr& msg)
     // marker_msg.pose.orientation.y = msg->pose.pose.orientation.y;
     // marker_msg.pose.orientation.z = msg->pose.pose.orientation.z;
     // marker_msg.pose.orientation.w = msg->pose.pose.orientation.w;
-    marker_msg.scale.x = 0.3;  //! 아마도 차량의 좌우 길이
-    marker_msg.scale.y = 0.6;  //! 아마도 차량의 앞뒤 길이
-    marker_msg.scale.z = 0.3;  //! 차량의 높이
+    marker_msg.scale.x = 0.5;  //! 아마도 차량의 앞뒤 길이
+    marker_msg.scale.y = 0.25;  //! 아마도 차량의 좌우 길이
+    marker_msg.scale.z = 0.2;  //! 차량의 높이
     marker_msg.color.r = 0.0;
     marker_msg.color.g = 0.0;
     marker_msg.color.b = 1.0;
@@ -148,8 +152,8 @@ void p0Callback(const nav_msgs::Odometry::ConstPtr& msg)
     // std::cout << "published /vehicle_path" << "\n\n";
 }
 
-//! /lookahead_point (geometry_msgs/Pose)
-void p1Callback(const geometry_msgs::Pose::ConstPtr& msg)
+//! /lookahead_point (geometry_msgs/Point)
+void p1Callback(const geometry_msgs::Point::ConstPtr& msg)
 {
     // Make vehicle message
     visualization_msgs::Marker marker_msg;
@@ -158,16 +162,16 @@ void p1Callback(const geometry_msgs::Pose::ConstPtr& msg)
     marker_msg.id = 0;
     marker_msg.type = visualization_msgs::Marker::SPHERE;
     marker_msg.action = visualization_msgs::Marker::ADD;
-    marker_msg.pose.position.x = msg->position.x;
-    marker_msg.pose.position.y = msg->position.y;
+    marker_msg.pose.position.x = msg->x;
+    marker_msg.pose.position.y = msg->y;
     marker_msg.pose.position.z = 0;
     marker_msg.pose.orientation.x = 0.0;
     marker_msg.pose.orientation.y = 0.0;
     marker_msg.pose.orientation.z = 0.0;
     marker_msg.pose.orientation.w = 1.0;
-    marker_msg.scale.x = 1.0;
-    marker_msg.scale.y = 1.0;
-    marker_msg.scale.z = 1.0;
+    marker_msg.scale.x = 0.2;
+    marker_msg.scale.y = 0.2;
+    marker_msg.scale.z = 0.2;
     marker_msg.color.r = 0.0;
     marker_msg.color.g = 1.0;
     marker_msg.color.b = 0.0;
@@ -183,6 +187,7 @@ void p1Callback(const geometry_msgs::Pose::ConstPtr& msg)
     p1_marker_pub.publish(marker_msg);
 }
 
+/*
 void p2Callback(const ac_car_states_msgs::Point::ConstPtr& msg)
 {
     // Make vehicle message
@@ -318,6 +323,7 @@ void p5Callback(const ac_car_states_msgs::Point::ConstPtr& msg)
     marker_msg.header.stamp = ros::Time::now();
     p5_marker_pub.publish(marker_msg);
 }
+*/
 
 int main(int argc, char** argv)
 {
@@ -325,31 +331,33 @@ int main(int argc, char** argv)
     ros::init(argc, argv, "any_point_visualizer");
     ros::NodeHandle nh;
 
+    /*
     //! Read CSV
     readCSV("~/jajaman_ws/centerline.csv", centerline);
     readCSV("~/jajaman_ws/inner_wall.csv", inner_wall);
     readCSV("~/jajaman_ws/outer_wall.csv", outer_wall);
+    */
 
     // Create publisher
     p0_marker_pub = nh.advertise<visualization_msgs::Marker>("/visual_pf_odom", 10);
     p1_marker_pub = nh.advertise<visualization_msgs::Marker>("/visual_lookahead", 10);
-    p2_marker_pub = nh.advertise<visualization_msgs::Marker>("/p2_marker", 10);
-    p3_marker_pub = nh.advertise<visualization_msgs::Marker>("/p3_marker", 10);
-    p4_marker_pub = nh.advertise<visualization_msgs::Marker>("/p4_marker", 10);
-    p5_marker_pub = nh.advertise<visualization_msgs::Marker>("/p5_marker", 10);
-    centerline_pub = nh.advertise<visualization_msgs::MarkerArray>("/visual_centerline", 10);
-    inner_wall_pub = nh.advertise<visualization_msgs::MarkerArray>("/visual_inner_wall", 10);
-    outer_wall_pub = nh.advertise<visualization_msgs::MarkerArray>("/visual_outer_wall", 10);
+    // p2_marker_pub = nh.advertise<visualization_msgs::Marker>("/p2_marker", 10);
+    // p3_marker_pub = nh.advertise<visualization_msgs::Marker>("/p3_marker", 10);
+    // p4_marker_pub = nh.advertise<visualization_msgs::Marker>("/p4_marker", 10);
+    // p5_marker_pub = nh.advertise<visualization_msgs::Marker>("/p5_marker", 10);
+    // centerline_pub = nh.advertise<visualization_msgs::MarkerArray>("/visual_centerline", 10);
+    // inner_wall_pub = nh.advertise<visualization_msgs::MarkerArray>("/visual_inner_wall", 10);
+    // outer_wall_pub = nh.advertise<visualization_msgs::MarkerArray>("/visual_outer_wall", 10);
     path_pub = nh.advertise<nav_msgs::Path>("/visual_pf_path", 10);
 
     // Create subscriber
     // ros::Subscriber heading_sub = nh.subscribe("/heading", 10, headingCallback);
-    ros::Subscriber safety_lookahead_sub = nh.subscribe("/safety_lookahead", 10, p0Callback);
-    ros::Subscriber collision_point_sub = nh.subscribe("/collision_point", 10, p1Callback);
-    ros::Subscriber lookahead_sub = nh.subscribe("/lookahead_point", 10, p2Callback);
-    ros::Subscriber any_point_3_sub = nh.subscribe("/any_point_3", 10, p3Callback);
-    ros::Subscriber any_point_4_sub = nh.subscribe("/any_point_4", 10, p4Callback);
-    ros::Subscriber any_point_5_sub = nh.subscribe("/any_point_5", 10, p5Callback);
+    ros::Subscriber any_point_1_sub = nh.subscribe("/pf/pose/odom", 10, p0Callback);
+    ros::Subscriber any_point_2_sub = nh.subscribe("/lookahead_point", 10, p1Callback);
+    // ros::Subscriber any_point_3_sub = nh.subscribe("/any_point_2", 10, p2Callback);
+    // ros::Subscriber any_point_3_sub = nh.subscribe("/any_point_3", 10, p3Callback);
+    // ros::Subscriber any_point_4_sub = nh.subscribe("/any_point_4", 10, p4Callback);
+    // ros::Subscriber any_point_5_sub = nh.subscribe("/any_point_5", 10, p5Callback);
 
     ros::spin();
 

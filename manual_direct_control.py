@@ -1,3 +1,8 @@
+'''
+Publish '/vesc/ackermann_cmd' filled with user inputs 
+for 'vesc' in jetson to control the motors
+'''
+
 import sys
 import math
 import numpy as np
@@ -20,14 +25,6 @@ def main():
     rate = rospy.Rate(10)
 
     while not rospy.is_shutdown():
-        '''
-        steer = 0
-        speed = 0
-        print("steer?")
-        input(steer)
-        print("speed?")
-        input(speed)
-        '''
         drive_msg = AckermannDriveStamped()
         drive_msg.header.stamp = rospy.Time.now()
         drive_msg.drive.steering_angle = steer * (-1)

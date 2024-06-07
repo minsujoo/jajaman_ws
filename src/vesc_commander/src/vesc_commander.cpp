@@ -5,8 +5,12 @@
 #include <ackermann_msgs/AckermannDriveStamped.h>
 
 #define HIGHIST_FREQUENCY 100
-#define CONSTANT_SPEED_MODE 0  // 0: various speed, 1: constant speed
-#define CONSTANT_SPEED 1.0     // valid only when it is constant speed mode
+// #define CONSTANT_SPEED_MODE 0  // 0: various speed, 1: constant speed
+// #define CONSTANT_SPEED 1.8     // valid only when it is constant speed mode
+
+// mode, const speed
+bool mode;
+double const_speed;
 
 // publisher, msg, mutex
 ros::Publisher drive_pub;
@@ -46,7 +50,7 @@ void speedCallback(const std_msgs::Float64::ConstPtr &msg)
 }
 
 void schedulerCallback(const ros::TimerEvent& event) {
-    if (CONSTANT_SPEED_MODE) {
+    if (mode) {
         if (steer_ok) {
             ackermann_msgs::AckermannDriveStamped drive_msg;
             
@@ -56,7 +60,7 @@ void schedulerCallback(const ros::TimerEvent& event) {
 
             m_e_stop.lock();
             if (e_stop) drive_msg.drive.speed = 0;
-            else drive_msg.drive.speed = CONSTANT_SPEED;
+            else drive_msg.drive.speed = const_speed;
             m_e_stop.unlock();
 
             drive_msg.header.stamp = ros::Time::now();
@@ -116,6 +120,30 @@ int main(int argc, char** argv)
     steer_ok = false;
     speed_ok = false;
     e_stop = false;
+
+    // Set Mode
+    int input;
+    bool valid_input = false;
+    while (!valid_input) {
+        std::cout << "Please enter 0(false) or 1(true) for mode\n";
+        std::cout << "0: subscribe speed from speed_decider\n";
+        std::cout << "1: constant speed\n";
+        std::cin >> input;
+        if (input == 0 || input == 1) {
+            valid_input = true;
+        }
+        else {
+            std::cout << "Invalid input.\n\n";
+        }
+    }
+    mode = static_cast<bool>(input);
+
+    const_speed = 0;
+    bool valid_input2 = false;
+    if (mode == true) {
+        std::cout << "Please enter speed.\n";
+        std::cin >> const_speed;
+    }
 
     // Initialize scheduler
     ros::Timer scheduler = nh.createTimer(ros::Duration(1/HIGHIST_FREQUENCY), &schedulerCallback);

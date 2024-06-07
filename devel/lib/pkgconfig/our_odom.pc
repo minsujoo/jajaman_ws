@@ -1,0 +1,8 @@
+prefix=/home/dony/jajaman_ws/devel
+
+Name: our_odom
+Description: Description of our_odom
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

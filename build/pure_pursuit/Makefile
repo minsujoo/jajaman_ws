@@ -68,6 +68,18 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -123,18 +135,6 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
 # The main all target
 all: cmake_check_build_system
 	cd /home/dony/jajaman_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/dony/jajaman_ws/build/CMakeFiles /home/dony/jajaman_ws/build/pure_pursuit/CMakeFiles/progress.marks
@@ -181,21 +181,6 @@ pure_pursuit: pure_pursuit/CMakeFiles/pure_pursuit.dir/rule
 pure_pursuit/fast:
 	cd /home/dony/jajaman_ws/build && $(MAKE) -f pure_pursuit/CMakeFiles/pure_pursuit.dir/build.make pure_pursuit/CMakeFiles/pure_pursuit.dir/build
 .PHONY : pure_pursuit/fast
-
-# Convenience name for target.
-pure_pursuit/CMakeFiles/projected_point_publisher.dir/rule:
-	cd /home/dony/jajaman_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pure_pursuit/CMakeFiles/projected_point_publisher.dir/rule
-.PHONY : pure_pursuit/CMakeFiles/projected_point_publisher.dir/rule
-
-# Convenience name for target.
-projected_point_publisher: pure_pursuit/CMakeFiles/projected_point_publisher.dir/rule
-
-.PHONY : projected_point_publisher
-
-# fast build rule for target.
-projected_point_publisher/fast:
-	cd /home/dony/jajaman_ws/build && $(MAKE) -f pure_pursuit/CMakeFiles/projected_point_publisher.dir/build.make pure_pursuit/CMakeFiles/projected_point_publisher.dir/build
-.PHONY : projected_point_publisher/fast
 
 # Convenience name for target.
 pure_pursuit/CMakeFiles/lookahead_point_generator.dir/rule:
@@ -266,33 +251,6 @@ src/lookahead_point_generator.cpp.s:
 	cd /home/dony/jajaman_ws/build && $(MAKE) -f pure_pursuit/CMakeFiles/lookahead_point_generator.dir/build.make pure_pursuit/CMakeFiles/lookahead_point_generator.dir/src/lookahead_point_generator.cpp.s
 .PHONY : src/lookahead_point_generator.cpp.s
 
-src/projected_point_publisher.o: src/projected_point_publisher.cpp.o
-
-.PHONY : src/projected_point_publisher.o
-
-# target to build an object file
-src/projected_point_publisher.cpp.o:
-	cd /home/dony/jajaman_ws/build && $(MAKE) -f pure_pursuit/CMakeFiles/projected_point_publisher.dir/build.make pure_pursuit/CMakeFiles/projected_point_publisher.dir/src/projected_point_publisher.cpp.o
-.PHONY : src/projected_point_publisher.cpp.o
-
-src/projected_point_publisher.i: src/projected_point_publisher.cpp.i
-
-.PHONY : src/projected_point_publisher.i
-
-# target to preprocess a source file
-src/projected_point_publisher.cpp.i:
-	cd /home/dony/jajaman_ws/build && $(MAKE) -f pure_pursuit/CMakeFiles/projected_point_publisher.dir/build.make pure_pursuit/CMakeFiles/projected_point_publisher.dir/src/projected_point_publisher.cpp.i
-.PHONY : src/projected_point_publisher.cpp.i
-
-src/projected_point_publisher.s: src/projected_point_publisher.cpp.s
-
-.PHONY : src/projected_point_publisher.s
-
-# target to generate assembly for a file
-src/projected_point_publisher.cpp.s:
-	cd /home/dony/jajaman_ws/build && $(MAKE) -f pure_pursuit/CMakeFiles/projected_point_publisher.dir/build.make pure_pursuit/CMakeFiles/projected_point_publisher.dir/src/projected_point_publisher.cpp.s
-.PHONY : src/projected_point_publisher.cpp.s
-
 src/pure_pursuit.o: src/pure_pursuit.cpp.o
 
 .PHONY : src/pure_pursuit.o
@@ -327,14 +285,13 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
+	@echo "... install/local"
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... pure_pursuit"
-	@echo "... install/local"
-	@echo "... projected_point_publisher"
 	@echo "... lookahead_point_generator"
 	@echo "... src/load_centerline_from_csv.o"
 	@echo "... src/load_centerline_from_csv.i"
@@ -342,9 +299,6 @@ help:
 	@echo "... src/lookahead_point_generator.o"
 	@echo "... src/lookahead_point_generator.i"
 	@echo "... src/lookahead_point_generator.s"
-	@echo "... src/projected_point_publisher.o"
-	@echo "... src/projected_point_publisher.i"
-	@echo "... src/projected_point_publisher.s"
 	@echo "... src/pure_pursuit.o"
 	@echo "... src/pure_pursuit.i"
 	@echo "... src/pure_pursuit.s"

@@ -1,3 +1,8 @@
+'''
+Publish '/steer' and '/speed' filled with user inputs 
+for 'vesc_commander' to publish '/vesc/ackermann_cmd' with user-selelted steering and speed
+'''
+
 import sys
 import math
 import numpy as np
