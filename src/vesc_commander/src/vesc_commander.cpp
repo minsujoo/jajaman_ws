@@ -1,8 +1,36 @@
 #include <ros/ros.h>
+#include <cmath>
 #include <mutex>
 #include <std_msgs/Float64.h>
 #include <std_msgs/Bool.h>
+#include <std_msgs/Int16.h>
 #include <ackermann_msgs/AckermannDriveStamped.h>
+
+#define DEFAULT_STEER_OFFSET -2.5 // -2.5
+
+#define IDX_FROM_1 80
+#define IDX_TO_1 90
+#define STEER_OFFSET_1 -5
+
+#define IDX_FROM_2 0
+#define IDX_TO_2 5
+#define STEER_OFFSET_2 -10.0
+
+#define IDX_FROM_3 100
+#define IDX_TO_3 105
+#define STEER_OFFSET_3 7.0
+
+#define IDX_FROM_4 30  // new
+#define IDX_TO_4 33    // new
+#define STEER_OFFSET_4 -4  // new
+
+#define IDX_FROM_5 34
+#define IDX_TO_5 40
+#define STEER_OFFSET_5 -12
+
+#define IDX_FROM_6 41
+#define IDX_TO_6 50
+#define STEER_OFFSET_6 -15  // -9
 
 #define HIGHIST_FREQUENCY 100
 // #define CONSTANT_SPEED_MODE 0  // 0: various speed, 1: constant speed
@@ -17,13 +45,24 @@ ros::Publisher drive_pub;
 std::mutex m_steer;
 std::mutex m_speed;
 std::mutex m_e_stop;
+std::mutex m_index;
 
-// steer, speed, steer_ok, speed_ok, e_stop
+// steer, speed, steer_ok, speed_ok, e_stop, index, steer_offset
 double steer;
 double speed;
 bool steer_ok;
 bool speed_ok;
 bool e_stop;
+int idx;
+double steer_offset;  //!
+
+void indexCallback(const std_msgs::Int16::ConstPtr &msg)
+{
+    m_index.lock();
+    idx = int(msg->data);
+    // std::cout << "received index: " << index << "\n";
+    m_index.unlock();
+}
 
 void eStopCallback(const std_msgs::Bool::ConstPtr &msg)
 {
@@ -50,12 +89,26 @@ void speedCallback(const std_msgs::Float64::ConstPtr &msg)
 }
 
 void schedulerCallback(const ros::TimerEvent& event) {
+    if (idx >= IDX_FROM_1 && idx <= IDX_TO_1) steer_offset = STEER_OFFSET_1;
+    else if (idx >= IDX_FROM_2 && idx <= IDX_TO_2) steer_offset = STEER_OFFSET_2;
+    else if (idx >= IDX_FROM_3 && idx <= IDX_TO_3) steer_offset = STEER_OFFSET_3;
+    else if (idx >= IDX_FROM_4 && idx <= IDX_TO_4) steer_offset = STEER_OFFSET_4;
+    else if (idx >= IDX_FROM_5 && idx <= IDX_TO_5) steer_offset = STEER_OFFSET_5;
+    else if (idx >= IDX_FROM_6 && idx <= IDX_TO_6) steer_offset = STEER_OFFSET_6;
+    else steer_offset = DEFAULT_STEER_OFFSET;
+
     if (mode) {
         if (steer_ok) {
             ackermann_msgs::AckermannDriveStamped drive_msg;
             
             m_steer.lock();
-            drive_msg.drive.steering_angle = steer * (-1);
+            // std::cout << "ADDED " << STEER_OFFSET / 180 * M_PI << "\n";
+            std::cout << "steer was " << steer << "\n";
+            double corrected_steer = double(steer) + (steer_offset / 180 * M_PI);   //! add steering offset
+            // double steer2 = steer - 0.0262;
+            std::cout << "steer is now " << steer << "\n";
+            std::cout << "corrected steer is now " << corrected_steer << "\n";
+            drive_msg.drive.steering_angle = corrected_steer * (-1);
             m_steer.unlock();
 
             m_e_stop.lock();
@@ -69,7 +122,8 @@ void schedulerCallback(const ros::TimerEvent& event) {
             std::cout << "e stop           : " << e_stop << "\n";
             std::cout << "published!\n";
             std::cout << "speed (constant) : " << drive_msg.drive.speed << "\n";
-            std::cout << "steer angle      : " << drive_msg.drive.steering_angle << "\n";
+            std::cout << "steer angle      : " << drive_msg.drive.steering_angle * (-1) << "\n";
+            std::cout << "steer angle(deg) : " << drive_msg.drive.steering_angle * (-1) / M_PI * 180.0 << "\n";
             std::cout << "\n\n";
         }
         else {
@@ -91,7 +145,13 @@ void schedulerCallback(const ros::TimerEvent& event) {
             m_e_stop.unlock();
 
             m_steer.lock();
-            drive_msg.drive.steering_angle = steer * (-1);
+            // std::cout << "ADDED " << STEER_OFFSET / 180 * M_PI << "\n";
+            std::cout << "steer was " << steer << "\n";
+            double corrected_steer = steer + (steer_offset / 180 * M_PI);   //! add steering offset
+            // double steer2 = steer - 0.0262;
+            std::cout << "steer is now " << steer << "\n";
+            std::cout << "corrected steer is now " << corrected_steer << "\n";
+            drive_msg.drive.steering_angle = corrected_steer * (-1);
             m_steer.unlock();
 
             drive_msg.header.stamp = ros::Time::now();
@@ -99,8 +159,9 @@ void schedulerCallback(const ros::TimerEvent& event) {
 
             std::cout << "e stop           : " << e_stop << "\n";
             std::cout << "published!\n";
-            std::cout << "speed       : " << drive_msg.drive.speed << "\n";
-            std::cout << "steer angle : " << drive_msg.drive.steering_angle << "\n";
+            std::cout << "speed            : " << drive_msg.drive.speed << "\n";
+            std::cout << "steer angle      : " << drive_msg.drive.steering_angle * (-1) << "\n";
+            std::cout << "steer angle(deg) : " << drive_msg.drive.steering_angle * (-1) / M_PI * 180.0 << "\n";
             std::cout << "\n\n";
         }
         else {
@@ -112,6 +173,9 @@ void schedulerCallback(const ros::TimerEvent& event) {
 
 int main(int argc, char** argv)
 {
+    //! steer offset
+    steer_offset = 0;
+
     // Initialize the ROS node
     ros::init(argc, argv, "vesc_commander");
     ros::NodeHandle nh;
@@ -155,6 +219,7 @@ int main(int argc, char** argv)
     ros::Subscriber e_stop_sub = nh.subscribe("/e_stop", 10, eStopCallback);
     ros::Subscriber steer_sub = nh.subscribe("/steer", 10, steerCallback);
     ros::Subscriber speed_sub = nh.subscribe("/speed", 10, speedCallback);
+    ros::Subscriber index_sub = nh.subscribe("/projected_point_index", 10, indexCallback);
 
     // Spin
     ros::spin();

@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "${prefix}/include".split(';') if "${prefix}/i
 PROJECT_CATKIN_DEPENDS = "roscpp;std_msgs;geometry_msgs".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "-lpure_pursuit".split(';') if "-lpure_pursuit" != "" else []
 PROJECT_NAME = "pure_pursuit"
-PROJECT_SPACE_DIR = "/home/dony/jajaman_ws/install"
+PROJECT_SPACE_DIR = "/home/jetson/jajaman_ws/install"
 PROJECT_VERSION = "0.0.0"

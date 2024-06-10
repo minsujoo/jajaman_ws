@@ -22,7 +22,8 @@ def main():
     
     steer_deg = 0.0
     speed = 0.0
-    steer_deg = float(input("steer in degree?   ")) - 1.5
+    # steer_deg = float(input("steer in degree?   ")) - 1.5
+    steer_deg = float(input("steer in degree?   "))
     steer = steer_deg / 180 * math.pi
     speed = float(input("speed?   "))
 

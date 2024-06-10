@@ -1,8 +1,8 @@
-# Install script for directory: /home/dony/jajaman_ws/src/centerline_projector
+# Install script for directory: /home/jetson/jajaman_ws/src/centerline_projector
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/dony/jajaman_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/jetson/jajaman_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/dony/jajaman_ws/build/centerline_projector/catkin_generated/installspace/centerline_projector.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/jetson/jajaman_ws/build/centerline_projector/catkin_generated/installspace/centerline_projector.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/centerline_projector/cmake" TYPE FILE FILES
-    "/home/dony/jajaman_ws/build/centerline_projector/catkin_generated/installspace/centerline_projectorConfig.cmake"
-    "/home/dony/jajaman_ws/build/centerline_projector/catkin_generated/installspace/centerline_projectorConfig-version.cmake"
+    "/home/jetson/jajaman_ws/build/centerline_projector/catkin_generated/installspace/centerline_projectorConfig.cmake"
+    "/home/jetson/jajaman_ws/build/centerline_projector/catkin_generated/installspace/centerline_projectorConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/centerline_projector" TYPE FILE FILES "/home/dony/jajaman_ws/src/centerline_projector/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/centerline_projector" TYPE FILE FILES "/home/jetson/jajaman_ws/src/centerline_projector/package.xml")
 endif()
 

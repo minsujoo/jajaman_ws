@@ -1,8 +1,8 @@
-# Install script for directory: /home/dony/jajaman_ws/src/joystick_drivers/joy
+# Install script for directory: /home/jetson/jajaman_ws/src/joystick_drivers/joy
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/dony/jajaman_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/jetson/jajaman_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,18 +38,18 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/dony/jajaman_ws/build/joystick_drivers/joy/catkin_generated/installspace/joy.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/jetson/jajaman_ws/build/joystick_drivers/joy/catkin_generated/installspace/joy.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/joy/cmake" TYPE FILE FILES
-    "/home/dony/jajaman_ws/build/joystick_drivers/joy/catkin_generated/installspace/joyConfig.cmake"
-    "/home/dony/jajaman_ws/build/joystick_drivers/joy/catkin_generated/installspace/joyConfig-version.cmake"
+    "/home/jetson/jajaman_ws/build/joystick_drivers/joy/catkin_generated/installspace/joyConfig.cmake"
+    "/home/jetson/jajaman_ws/build/joystick_drivers/joy/catkin_generated/installspace/joyConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/joy" TYPE FILE FILES "/home/dony/jajaman_ws/src/joystick_drivers/joy/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/joy" TYPE FILE FILES "/home/jetson/jajaman_ws/src/joystick_drivers/joy/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -59,12 +59,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/joy/joy_node"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/joy" TYPE EXECUTABLE FILES "/home/dony/jajaman_ws/devel/lib/joy/joy_node")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/joy" TYPE EXECUTABLE FILES "/home/jetson/jajaman_ws/devel/lib/joy/joy_node")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/joy/joy_node" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/joy/joy_node")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/joy/joy_node"
-         OLD_RPATH "/opt/ros/noetic/lib:"
+         OLD_RPATH "/opt/ros/melodic/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/joy/joy_node")
@@ -74,10 +74,10 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/joy" TYPE DIRECTORY FILES
-    "/home/dony/jajaman_ws/src/joystick_drivers/joy/migration_rules"
-    "/home/dony/jajaman_ws/src/joystick_drivers/joy/scripts"
-    "/home/dony/jajaman_ws/src/joystick_drivers/joy/config"
-    "/home/dony/jajaman_ws/src/joystick_drivers/joy/launch"
+    "/home/jetson/jajaman_ws/src/joystick_drivers/joy/migration_rules"
+    "/home/jetson/jajaman_ws/src/joystick_drivers/joy/scripts"
+    "/home/jetson/jajaman_ws/src/joystick_drivers/joy/config"
+    "/home/jetson/jajaman_ws/src/joystick_drivers/joy/launch"
     USE_SOURCE_PERMISSIONS)
 endif()
 

@@ -1,4 +1,4 @@
-prefix=/home/dony/jajaman_ws/devel
+prefix=/home/jetson/jajaman_ws/devel
 
 Name: centerline_projector
 Description: Description of centerline_projector

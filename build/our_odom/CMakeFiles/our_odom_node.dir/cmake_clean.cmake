@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
-  "/home/dony/jajaman_ws/devel/lib/our_odom/our_odom_node"
-  "/home/dony/jajaman_ws/devel/lib/our_odom/our_odom_node.pdb"
   "CMakeFiles/our_odom_node.dir/src/our_odom.cpp.o"
+  "/home/jetson/jajaman_ws/devel/lib/our_odom/our_odom_node.pdb"
+  "/home/jetson/jajaman_ws/devel/lib/our_odom/our_odom_node"
 )
 
 # Per-language clean rules from dependency scanning.

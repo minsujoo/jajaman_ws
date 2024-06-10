@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/dony/jajaman_ws/src/our_odom/src/our_odom.cpp" "/home/dony/jajaman_ws/build/our_odom/CMakeFiles/our_odom_node.dir/src/our_odom.cpp.o"
+  "/home/jetson/jajaman_ws/src/our_odom/src/our_odom.cpp" "/home/jetson/jajaman_ws/build/our_odom/CMakeFiles/our_odom_node.dir/src/our_odom.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -17,8 +17,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/opt/ros/noetic/include"
-  "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
+  "/opt/ros/melodic/include"
+  "/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   )
 
 # Targets to which this target links.

@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "sensor_msgs".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "joy"
-PROJECT_SPACE_DIR = "/home/dony/jajaman_ws/install"
+PROJECT_SPACE_DIR = "/home/jetson/jajaman_ws/install"
 PROJECT_VERSION = "1.15.1"

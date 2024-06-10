@@ -1,8 +1,8 @@
-# Install script for directory: /home/dony/jajaman_ws/src/centerline_projector_xy
+# Install script for directory: /home/jetson/jajaman_ws/src/centerline_projector_xy
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/dony/jajaman_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/jetson/jajaman_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/dony/jajaman_ws/build/centerline_projector_xy/catkin_generated/installspace/centerline_projector_xy.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/jetson/jajaman_ws/build/centerline_projector_xy/catkin_generated/installspace/centerline_projector_xy.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/centerline_projector_xy/cmake" TYPE FILE FILES
-    "/home/dony/jajaman_ws/build/centerline_projector_xy/catkin_generated/installspace/centerline_projector_xyConfig.cmake"
-    "/home/dony/jajaman_ws/build/centerline_projector_xy/catkin_generated/installspace/centerline_projector_xyConfig-version.cmake"
+    "/home/jetson/jajaman_ws/build/centerline_projector_xy/catkin_generated/installspace/centerline_projector_xyConfig.cmake"
+    "/home/jetson/jajaman_ws/build/centerline_projector_xy/catkin_generated/installspace/centerline_projector_xyConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/centerline_projector_xy" TYPE FILE FILES "/home/dony/jajaman_ws/src/centerline_projector_xy/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/centerline_projector_xy" TYPE FILE FILES "/home/jetson/jajaman_ws/src/centerline_projector_xy/package.xml")
 endif()
 

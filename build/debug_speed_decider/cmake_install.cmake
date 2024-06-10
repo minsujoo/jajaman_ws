@@ -1,8 +1,8 @@
-# Install script for directory: /home/dony/jajaman_ws/src/debug_speed_decider
+# Install script for directory: /home/jetson/jajaman_ws/src/debug_speed_decider
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/dony/jajaman_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/jetson/jajaman_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/dony/jajaman_ws/build/debug_speed_decider/catkin_generated/installspace/debug_speed_decider.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/jetson/jajaman_ws/build/debug_speed_decider/catkin_generated/installspace/debug_speed_decider.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/debug_speed_decider/cmake" TYPE FILE FILES
-    "/home/dony/jajaman_ws/build/debug_speed_decider/catkin_generated/installspace/debug_speed_deciderConfig.cmake"
-    "/home/dony/jajaman_ws/build/debug_speed_decider/catkin_generated/installspace/debug_speed_deciderConfig-version.cmake"
+    "/home/jetson/jajaman_ws/build/debug_speed_decider/catkin_generated/installspace/debug_speed_deciderConfig.cmake"
+    "/home/jetson/jajaman_ws/build/debug_speed_decider/catkin_generated/installspace/debug_speed_deciderConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/debug_speed_decider" TYPE FILE FILES "/home/dony/jajaman_ws/src/debug_speed_decider/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/debug_speed_decider" TYPE FILE FILES "/home/jetson/jajaman_ws/src/debug_speed_decider/package.xml")
 endif()
 

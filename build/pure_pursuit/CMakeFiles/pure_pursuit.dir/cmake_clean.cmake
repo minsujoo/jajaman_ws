@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
-  "/home/dony/jajaman_ws/devel/lib/pure_pursuit/pure_pursuit"
-  "/home/dony/jajaman_ws/devel/lib/pure_pursuit/pure_pursuit.pdb"
   "CMakeFiles/pure_pursuit.dir/src/pure_pursuit.cpp.o"
+  "/home/jetson/jajaman_ws/devel/lib/pure_pursuit/pure_pursuit.pdb"
+  "/home/jetson/jajaman_ws/devel/lib/pure_pursuit/pure_pursuit"
 )
 
 # Per-language clean rules from dependency scanning.

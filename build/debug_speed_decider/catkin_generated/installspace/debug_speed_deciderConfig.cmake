@@ -67,14 +67,14 @@ set(debug_speed_decider_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(debug_speed_decider_SOURCE_PREFIX /home/dony/jajaman_ws/src/debug_speed_decider)
-  set(debug_speed_decider_DEVEL_PREFIX /home/dony/jajaman_ws/devel)
+  set(debug_speed_decider_SOURCE_PREFIX /home/jetson/jajaman_ws/src/debug_speed_decider)
+  set(debug_speed_decider_DEVEL_PREFIX /home/jetson/jajaman_ws/devel)
   set(debug_speed_decider_INSTALL_PREFIX "")
   set(debug_speed_decider_PREFIX ${debug_speed_decider_DEVEL_PREFIX})
 else()
   set(debug_speed_decider_SOURCE_PREFIX "")
   set(debug_speed_decider_DEVEL_PREFIX "")
-  set(debug_speed_decider_INSTALL_PREFIX /home/dony/jajaman_ws/install)
+  set(debug_speed_decider_INSTALL_PREFIX /home/jetson/jajaman_ws/install)
   set(debug_speed_decider_PREFIX ${debug_speed_decider_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/dony/jajaman_ws/install/lib;/home/dony/jajaman_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/jetson/jajaman_ws/install/lib;/home/jetson/jajaman_ws/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(debug_speed_decider_LIBRARIES ${debug_speed_decider_LIBRARIES})
 
   _list_append_unique(debug_speed_decider_LIBRARY_DIRS ${${debug_speed_decider_dep}_LIBRARY_DIRS})
-  _list_append_deduplicate(debug_speed_decider_EXPORTED_TARGETS ${${debug_speed_decider_dep}_EXPORTED_TARGETS})
+  list(APPEND debug_speed_decider_EXPORTED_TARGETS ${${debug_speed_decider_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")

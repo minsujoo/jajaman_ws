@@ -1,2 +1,2 @@
-any_map_visualizer:any_point_visualizer:centerline_projector:centerline_projector_xy:debug_speed_decider:joystick_drivers/joy:joystick_drivers/joystick_drivers:our_odom:pure_pursuit:speed_decider:test_cp:vesc_commander
--DCATKIN_DEVEL_PREFIX=/home/dony/jajaman_ws/devel -DCMAKE_INSTALL_PREFIX=/home/dony/jajaman_ws/install -G Unix Makefiles
+any_map_visualizer:any_point_visualizer:centerline_projector:centerline_projector_xy:debug_speed_decider:final_race:joystick_drivers/joy:joystick_drivers/joystick_drivers:our_odom:pure_pursuit:speed_decider:test_cp:vesc_commander
+-DCATKIN_DEVEL_PREFIX=/home/jetson/jajaman_ws/devel -DCMAKE_INSTALL_PREFIX=/home/jetson/jajaman_ws/install -G Unix Makefiles

@@ -16,6 +16,19 @@ Lookahead distance is set by speed. (proportional)
 #define LOOKAHEAD_DIST_PER_SPEED_2 2.0
 
 
+
+//! manual lookahead index set by index
+#define IDX_FROM_1 137
+#define IDX_TO_1 145
+#define LOOKAHEAD_IDX_1 3
+
+#define IDX_FROM_2 50
+#define IDX_TO_2 60
+#define LOOKAHEAD_IDX_2 12
+
+
+// index 137 ~ 147 구간은 lookahead index = 3
+
 PoiPlanner::PoiPlanner(ros::NodeHandle& nh, const std::string& centerline_file) : nh_(nh) {
     // Initial speed_
     speed_ = -1;
@@ -53,6 +66,7 @@ void PoiPlanner::indexCallback(const std_msgs::Int16::ConstPtr& msg) {
     // if speed is not subscribed yet. default lookahead dist is 1
     double lookahead_dist = 1;
     if (speed_ != -1) {
+        if (speed_ > 3.5) speed_ = 3.5;  //! for saturate speed
         if (speed_ < SPEED_TURNING_POINT) {
             lookahead_dist = DEFAULT_LOOKAHEAD_DIST + speed_ * LOOKAHEAD_DIST_PER_SPEED;
         }
@@ -61,6 +75,16 @@ void PoiPlanner::indexCallback(const std_msgs::Int16::ConstPtr& msg) {
         }
     }
     int lookahead_index = lookahead_dist / POINT_GAP;
+    //! manual setting
+    if (index >= IDX_FROM_1 && index <= IDX_TO_1) {
+        lookahead_dist = -1;
+        lookahead_index = LOOKAHEAD_IDX_1;
+    }
+    else if (index >= IDX_FROM_2 && index <= IDX_TO_2) {
+        lookahead_dist = -1;
+        lookahead_index = LOOKAHEAD_IDX_2;
+    }
+    //!
     int poi_centerline_point_iterator = index + lookahead_index;
     std::cout << "speed is : " << speed_ << "\n";
     std::cout << "lookahead distance is : " << lookahead_dist << "\n";

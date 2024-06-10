@@ -67,14 +67,14 @@ set(our_odom_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(our_odom_SOURCE_PREFIX /home/dony/jajaman_ws/src/our_odom)
-  set(our_odom_DEVEL_PREFIX /home/dony/jajaman_ws/devel)
+  set(our_odom_SOURCE_PREFIX /home/jetson/jajaman_ws/src/our_odom)
+  set(our_odom_DEVEL_PREFIX /home/jetson/jajaman_ws/devel)
   set(our_odom_INSTALL_PREFIX "")
   set(our_odom_PREFIX ${our_odom_DEVEL_PREFIX})
 else()
   set(our_odom_SOURCE_PREFIX "")
   set(our_odom_DEVEL_PREFIX "")
-  set(our_odom_INSTALL_PREFIX /home/dony/jajaman_ws/install)
+  set(our_odom_INSTALL_PREFIX /home/jetson/jajaman_ws/install)
   set(our_odom_PREFIX ${our_odom_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/dony/jajaman_ws/install/lib;/home/dony/jajaman_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/jetson/jajaman_ws/install/lib;/home/jetson/jajaman_ws/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(our_odom_LIBRARIES ${our_odom_LIBRARIES})
 
   _list_append_unique(our_odom_LIBRARY_DIRS ${${our_odom_dep}_LIBRARY_DIRS})
-  _list_append_deduplicate(our_odom_EXPORTED_TARGETS ${${our_odom_dep}_EXPORTED_TARGETS})
+  list(APPEND our_odom_EXPORTED_TARGETS ${${our_odom_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")

@@ -1,4 +1,4 @@
-prefix=/home/dony/jajaman_ws/install
+prefix=/home/jetson/jajaman_ws/install
 
 Name: our_odom
 Description: Description of our_odom

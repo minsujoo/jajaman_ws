@@ -7,4 +7,4 @@
 # new environment variables
 
 # modified environment variables
-export PWD='/home/dony/jajaman_ws/build'
+export PWD='/home/jetson/jajaman_ws/build'

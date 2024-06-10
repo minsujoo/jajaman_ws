@@ -67,14 +67,14 @@ set(centerline_projector_xy_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(centerline_projector_xy_SOURCE_PREFIX /home/dony/jajaman_ws/src/centerline_projector_xy)
-  set(centerline_projector_xy_DEVEL_PREFIX /home/dony/jajaman_ws/devel)
+  set(centerline_projector_xy_SOURCE_PREFIX /home/jetson/jajaman_ws/src/centerline_projector_xy)
+  set(centerline_projector_xy_DEVEL_PREFIX /home/jetson/jajaman_ws/devel)
   set(centerline_projector_xy_INSTALL_PREFIX "")
   set(centerline_projector_xy_PREFIX ${centerline_projector_xy_DEVEL_PREFIX})
 else()
   set(centerline_projector_xy_SOURCE_PREFIX "")
   set(centerline_projector_xy_DEVEL_PREFIX "")
-  set(centerline_projector_xy_INSTALL_PREFIX /home/dony/jajaman_ws/install)
+  set(centerline_projector_xy_INSTALL_PREFIX /home/jetson/jajaman_ws/install)
   set(centerline_projector_xy_PREFIX ${centerline_projector_xy_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/dony/jajaman_ws/install/lib;/home/dony/jajaman_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/jetson/jajaman_ws/install/lib;/home/jetson/jajaman_ws/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(centerline_projector_xy_LIBRARIES ${centerline_projector_xy_LIBRARIES})
 
   _list_append_unique(centerline_projector_xy_LIBRARY_DIRS ${${centerline_projector_xy_dep}_LIBRARY_DIRS})
-  _list_append_deduplicate(centerline_projector_xy_EXPORTED_TARGETS ${${centerline_projector_xy_dep}_EXPORTED_TARGETS})
+  list(APPEND centerline_projector_xy_EXPORTED_TARGETS ${${centerline_projector_xy_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")

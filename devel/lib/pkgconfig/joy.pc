@@ -1,4 +1,4 @@
-prefix=/home/dony/jajaman_ws/devel
+prefix=/home/jetson/jajaman_ws/devel
 
 Name: joy
 Description: Description of joy

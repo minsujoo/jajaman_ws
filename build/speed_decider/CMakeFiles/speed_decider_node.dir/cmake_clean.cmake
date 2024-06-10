@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
-  "/home/dony/jajaman_ws/devel/lib/speed_decider/speed_decider_node"
-  "/home/dony/jajaman_ws/devel/lib/speed_decider/speed_decider_node.pdb"
   "CMakeFiles/speed_decider_node.dir/src/speed_decider.cpp.o"
+  "/home/jetson/jajaman_ws/devel/lib/speed_decider/speed_decider_node.pdb"
+  "/home/jetson/jajaman_ws/devel/lib/speed_decider/speed_decider_node"
 )
 
 # Per-language clean rules from dependency scanning.

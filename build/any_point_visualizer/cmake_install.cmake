@@ -1,8 +1,8 @@
-# Install script for directory: /home/dony/jajaman_ws/src/any_point_visualizer
+# Install script for directory: /home/jetson/jajaman_ws/src/any_point_visualizer
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/dony/jajaman_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/jetson/jajaman_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/dony/jajaman_ws/build/any_point_visualizer/catkin_generated/installspace/any_point_visualizer.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/jetson/jajaman_ws/build/any_point_visualizer/catkin_generated/installspace/any_point_visualizer.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/any_point_visualizer/cmake" TYPE FILE FILES
-    "/home/dony/jajaman_ws/build/any_point_visualizer/catkin_generated/installspace/any_point_visualizerConfig.cmake"
-    "/home/dony/jajaman_ws/build/any_point_visualizer/catkin_generated/installspace/any_point_visualizerConfig-version.cmake"
+    "/home/jetson/jajaman_ws/build/any_point_visualizer/catkin_generated/installspace/any_point_visualizerConfig.cmake"
+    "/home/jetson/jajaman_ws/build/any_point_visualizer/catkin_generated/installspace/any_point_visualizerConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/any_point_visualizer" TYPE FILE FILES "/home/dony/jajaman_ws/src/any_point_visualizer/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/any_point_visualizer" TYPE FILE FILES "/home/jetson/jajaman_ws/src/any_point_visualizer/package.xml")
 endif()
 

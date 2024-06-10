@@ -1,8 +1,8 @@
-# Install script for directory: /home/dony/jajaman_ws/src/pure_pursuit
+# Install script for directory: /home/jetson/jajaman_ws/src/pure_pursuit
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/dony/jajaman_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/jetson/jajaman_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/dony/jajaman_ws/build/pure_pursuit/catkin_generated/installspace/pure_pursuit.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/jetson/jajaman_ws/build/pure_pursuit/catkin_generated/installspace/pure_pursuit.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pure_pursuit/cmake" TYPE FILE FILES
-    "/home/dony/jajaman_ws/build/pure_pursuit/catkin_generated/installspace/pure_pursuitConfig.cmake"
-    "/home/dony/jajaman_ws/build/pure_pursuit/catkin_generated/installspace/pure_pursuitConfig-version.cmake"
+    "/home/jetson/jajaman_ws/build/pure_pursuit/catkin_generated/installspace/pure_pursuitConfig.cmake"
+    "/home/jetson/jajaman_ws/build/pure_pursuit/catkin_generated/installspace/pure_pursuitConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pure_pursuit" TYPE FILE FILES "/home/dony/jajaman_ws/src/pure_pursuit/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pure_pursuit" TYPE FILE FILES "/home/jetson/jajaman_ws/src/pure_pursuit/package.xml")
 endif()
 

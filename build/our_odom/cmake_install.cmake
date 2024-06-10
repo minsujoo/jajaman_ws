@@ -1,8 +1,8 @@
-# Install script for directory: /home/dony/jajaman_ws/src/our_odom
+# Install script for directory: /home/jetson/jajaman_ws/src/our_odom
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/dony/jajaman_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/jetson/jajaman_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/dony/jajaman_ws/build/our_odom/catkin_generated/installspace/our_odom.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/jetson/jajaman_ws/build/our_odom/catkin_generated/installspace/our_odom.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/our_odom/cmake" TYPE FILE FILES
-    "/home/dony/jajaman_ws/build/our_odom/catkin_generated/installspace/our_odomConfig.cmake"
-    "/home/dony/jajaman_ws/build/our_odom/catkin_generated/installspace/our_odomConfig-version.cmake"
+    "/home/jetson/jajaman_ws/build/our_odom/catkin_generated/installspace/our_odomConfig.cmake"
+    "/home/jetson/jajaman_ws/build/our_odom/catkin_generated/installspace/our_odomConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/our_odom" TYPE FILE FILES "/home/dony/jajaman_ws/src/our_odom/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/our_odom" TYPE FILE FILES "/home/jetson/jajaman_ws/src/our_odom/package.xml")
 endif()
 

@@ -8,35 +8,41 @@ Subscribe '/projected_point_index' and publish '/speed'
 #include <std_msgs/Float64.h>  // /speed (pub)
 
 #define IDX_1 0
-#define SPEED_1 1.5
+#define SPEED_1 2.3
 #define IDX_2 10
-#define SPEED_2 3
-#define IDX_3 20
-#define SPEED_3 4
+#define SPEED_2 4.5
+#define IDX_3 15
+#define SPEED_3 7.5
 #define IDX_4 30
 #define SPEED_4 3
 #define IDX_5 40
-#define SPEED_5 2
-#define IDX_6 50
-#define SPEED_6 2
-#define IDX_7 60
-#define SPEED_7 1.5
-#define IDX_8 70
+#define SPEED_5 2.5
+#define IDX_6 44      //! 50
+#define SPEED_6 4     //! 2.5
+#define IDX_7 60        // 60
+#define SPEED_7 2     // 2
+#define IDX_8 67      // 70
 #define SPEED_8 1.5
 #define IDX_9 80
 #define SPEED_9 1.5
-#define IDX_10 90
-#define SPEED_10 3
-#define IDX_11 100
-#define SPEED_11 1.5
-#define IDX_12 110
-#define SPEED_12 1.5
-#define IDX_13 120
-#define SPEED_13 1.5
-#define IDX_14 130
-#define SPEED_14 2.5
-#define IDX_15 140
-#define SPEED_15 1.5
+#define IDX_10 83
+#define SPEED_10 5
+#define IDX_11 96
+#define SPEED_11 2
+#define IDX_12 100  
+#define SPEED_12 1.8
+#define IDX_13 110
+#define SPEED_13 2.5
+#define IDX_14 120
+#define SPEED_14 1.5
+#define IDX_15 125
+#define SPEED_15 4
+#define IDX_16 136
+#define SPEED_16 1.8
+#define IDX_17 146
+#define SPEED_17 1.8
+#define IDX_18 149
+#define SPEED_18 2.3
 // #define IDX_16 480
 // #define SPEED_16 1
 // #define IDX_17 490
@@ -98,6 +104,13 @@ void subscribeCallback(const std_msgs::Int16::ConstPtr &msg)
     else if (idx < IDX_15) {
         speed = interpolate(IDX_14, SPEED_14, IDX_15, SPEED_15, idx);
     }
+    else if (idx < IDX_16) {
+        speed = interpolate(IDX_15, SPEED_15, IDX_16, SPEED_16, idx);
+    }
+    else if (idx < IDX_17) {
+        speed = interpolate(IDX_16, SPEED_16, IDX_17, SPEED_17, idx);
+    }
+    else if (idx <= IDX_18) speed = interpolate(IDX_17, SPEED_17, IDX_18, SPEED_18, idx);
     // else if (idx < IDX_16) {
     //     speed = interpolate(IDX_15, SPEED_15, IDX_16, SPEED_16, idx);
     // }
@@ -105,7 +118,7 @@ void subscribeCallback(const std_msgs::Int16::ConstPtr &msg)
     //     speed = interpolate(IDX_16, SPEED_16, IDX_17, SPEED_17, idx);
     // }
     else {
-        speed = 1;
+        speed = 0;
     }
 
     // Update msgs
