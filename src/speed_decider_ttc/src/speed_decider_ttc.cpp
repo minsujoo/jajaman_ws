@@ -2,12 +2,12 @@
 Decide speeds along the projected point indeces.
 Subscribe '/projected_point_index' and publish '/speed'
 */
-
 #include <ros/ros.h>
 #include <mutex>
 #include <std_msgs/Int16.h>  // /projected_point_index (sub)
 #include <std_msgs/Float64.h>  // /speed (pub)
 #include <nav_msgs/Odometry.h> // /pf/pose/odom (sub)
+#include <sensor_msgs/LaserScan.h> // /scan (sub)
 
 #define IDX_1 0
 #define SPEED_1 2.3
@@ -54,6 +54,10 @@ Subscribe '/projected_point_index' and publish '/speed'
 #define IDX_22 149
 #define SPEED_22 2.3
 
+// AEB PARAMS
+#define WATCHING_ANGLE 5.0
+#define SAFETY_TIME 0.5
+#define REDUCED_SPEED 1.0
 
 // for safety
 #define W_IDX_FROM 106
@@ -69,10 +73,9 @@ Subscribe '/projected_point_index' and publish '/speed'
 #define S_IDX_TO_3 136
 #define S_SPEED_3 1.7
 
-
-
 // Initialize publishers
 ros::Publisher pub;
+ros::Publisher aeb_pub; // AEB publisher
 
 // Create msgs to publish
 std_msgs::Float64 pub_msg;
@@ -82,7 +85,6 @@ double pose_x;
 double pose_y;
 std::mutex m;
 int safety_mode;
-
 
 double interpolate(double x1, double y1, double x2, double y2, double x_new) {
     return (y2 - y1) / (x2 - x1) * (x_new - x1) + y1;
@@ -95,8 +97,35 @@ void poseCallback(const nav_msgs::Odometry::ConstPtr &msg) {
     m.unlock();
 }
 
-void subscribeCallback(const std_msgs::Int16::ConstPtr &msg)
-{
+// AEB callback function
+void lidarCallback(const sensor_msgs::LaserScan::ConstPtr &msg) {
+    double watching_angle = WATCHING_ANGLE * M_PI / 180.0; // Convert to radians
+    int watching_channels = static_cast<int>(watching_angle / msg->angle_increment);
+
+    auto min_range = std::min_element(msg->ranges.begin() + (msg->ranges.size() / 2 - watching_channels / 2),
+                                      msg->ranges.begin() + (msg->ranges.size() / 2 + watching_channels / 2));
+    double min_dist = *min_range;
+
+    double ttc = min_dist / REDUCED_SPEED; // Calculate time-to-collision
+
+    m.lock();
+    if (ttc < SAFETY_TIME) {
+        safety_mode = 2;
+        // std_msgs::Float64 drive_msg;
+        // drive_msg.data = REDUCED_SPEED;
+        // aeb_pub.publish(drive_msg);
+        // ROS_INFO("AEB activated: reducing speed to %f m/s", REDUCED_SPEED);
+    }
+    else {
+        if (safety_mode = 2) {
+            safety_mode = 0;
+        }
+    }
+    m.unlock();
+
+}
+
+void subscribeCallback(const std_msgs::Int16::ConstPtr &msg) {
     int idx = msg->data;
     double speed;
     if (idx < IDX_2) {
@@ -147,20 +176,33 @@ void subscribeCallback(const std_msgs::Int16::ConstPtr &msg)
     else if (idx < IDX_17) {
         speed = interpolate(IDX_16, SPEED_16, IDX_17, SPEED_17, idx);
     }
-    else if (idx < IDX_18) speed = interpolate(IDX_17, SPEED_17, IDX_18, SPEED_18, idx);
-    else if (idx < IDX_19) speed = interpolate(IDX_18, SPEED_18, IDX_19, SPEED_19, idx);
-    else if (idx < IDX_20) speed = interpolate(IDX_19, SPEED_19, IDX_20, SPEED_20, idx);
-    else if (idx < IDX_21) speed = interpolate(IDX_20, SPEED_20, IDX_21, SPEED_21, idx);
-    else if (idx <= IDX_22) speed = interpolate(IDX_21, SPEED_21, IDX_22, SPEED_22, idx);
-    else speed = 0;
+    else if (idx < IDX_18) {
+        speed = interpolate(IDX_17, SPEED_17, IDX_18, SPEED_18, idx);
+    }
+    else if (idx < IDX_19) {
+        speed = interpolate(IDX_18, SPEED_18, IDX_19, SPEED_19, idx);
+    }
+    else if (idx < IDX_20) {
+        speed = interpolate(IDX_19, SPEED_19, IDX_20, SPEED_20, idx);
+    }
+    else if (idx < IDX_21) {
+        speed = interpolate(IDX_20, SPEED_20, IDX_21, SPEED_21, idx);
+    }
+    else if (idx <= IDX_22) {
+        speed = interpolate(IDX_21, SPEED_21, IDX_22, SPEED_22, idx);
+    }
+    else {
+        speed = 0;
+    }
 
-    
     //! FOR SAFETY
     if (safety_mode == 0 && idx >= W_IDX_FROM && idx <= W_IDX_TO) {
+        m.lock();
         if (pose_y > STANDARD_Y) {
             safety_mode = 1;
             std::cout << "SAFETY MODE ON!!!\n";
         }
+        m.unlock();
     }
 
     if (safety_mode == 1) {
@@ -172,23 +214,20 @@ void subscribeCallback(const std_msgs::Int16::ConstPtr &msg)
             speed = S_SPEED_2;
             std::cout << "(SAFETY MODE) speed = " << speed << "\n";
         }
-        else if (idx >= S_IDX_FROM_3 && idx <= S_IDX_TO_3) {
-            speed = S_SPEED_3;
-            std::cout << "(SAFETY MODE) speed = " << speed << "\n";
-        }
         else {
             safety_mode = 0;
             std::cout << "SAFETY MODE OFF!!\n";
         }
     }
+    else if (safety_mode == 2) {
+        //* AEB
+        speed = 0;
+        std::cout << "AEB ON!!\n";
+    }
     //! FOR SAFETY
-
 
     // Update msgs
     pub_msg.data = speed;
-
-    // Input timestamp
-    // pub_msg.header.stamp = ros::Time::now();
 
     // Publish
     pub.publish(pub_msg);
@@ -197,8 +236,7 @@ void subscribeCallback(const std_msgs::Int16::ConstPtr &msg)
     std::cout << "decided speed is   : " << speed << "\n\n";
 }
 
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
     // global variables
     pose_x = 0;
     pose_y = 0;
@@ -210,10 +248,13 @@ int main(int argc, char** argv)
 
     // Define(advertise) publishers
     pub = nh.advertise<std_msgs::Float64>("/speed", 10);
+    // aeb_pub = nh.adv
+    // ertise<std_msgs::Float64>("/speed", 10); // Reuse the same publisher for AEB
 
-    // Subscribe topic
+    // Subscribe to topics
     ros::Subscriber subscriber = nh.subscribe("/projected_point_index", 10, subscribeCallback);
     ros::Subscriber subscriber_2 = nh.subscribe("/pf/pose/odom", 10, poseCallback);
+    ros::Subscriber lidar_sub = nh.subscribe("/scan", 10, lidarCallback); // AEB LiDAR subscriber
 
     // Spin
     ros::spin();

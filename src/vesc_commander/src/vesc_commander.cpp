@@ -204,10 +204,11 @@ int main(int argc, char** argv)
     int input;
     bool valid_input = false;
     while (!valid_input) {
-        std::cout << "Please enter 0(false) or 1(true) for mode\n";
-        std::cout << "0: subscribe speed from speed_decider\n";
-        std::cout << "1: constant speed\n";
-        std::cin >> input;
+        // std::cout << "Please enter 0(false) or 1(true) for mode\n";
+        // std::cout << "0: subscribe speed from speed_decider\n";
+        // std::cout << "1: constant speed\n";
+        // std::cin >> input;
+        input = 0; //* ONLY MODE 0
         if (input == 0 || input == 1) {
             valid_input = true;
         }

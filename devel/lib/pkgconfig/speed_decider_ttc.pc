@@ -1,0 +1,8 @@
+prefix=/home/jetson/jajaman_ws/devel
+
+Name: speed_decider_ttc
+Description: Description of speed_decider_ttc
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

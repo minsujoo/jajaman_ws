@@ -1026,6 +1026,19 @@ speed_decider_node/fast:
 .PHONY : speed_decider_node/fast
 
 #=============================================================================
+# Target rules for targets named speed_decider_ttc_node
+
+# Build rule for target.
+speed_decider_ttc_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 speed_decider_ttc_node
+.PHONY : speed_decider_ttc_node
+
+# fast build rule for target.
+speed_decider_ttc_node/fast:
+	$(MAKE) -f speed_decider_ttc/CMakeFiles/speed_decider_ttc_node.dir/build.make speed_decider_ttc/CMakeFiles/speed_decider_ttc_node.dir/build
+.PHONY : speed_decider_ttc_node/fast
+
+#=============================================================================
 # Target rules for targets named test_cp_node
 
 # Build rule for target.
@@ -1338,6 +1351,7 @@ help:
 	@echo "... pure_pursuit"
 	@echo "... lookahead_point_generator"
 	@echo "... speed_decider_node"
+	@echo "... speed_decider_ttc_node"
 	@echo "... test_cp_node"
 	@echo "... any_point_visualizer_node"
 	@echo "... clean_test_results_joy"
