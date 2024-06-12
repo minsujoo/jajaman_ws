@@ -909,6 +909,71 @@ debug_speed_decider_node/fast:
 .PHONY : debug_speed_decider_node/fast
 
 #=============================================================================
+# Target rules for targets named ackermann_msgs_generate_messages_eus
+
+# Build rule for target.
+ackermann_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ackermann_msgs_generate_messages_eus
+.PHONY : ackermann_msgs_generate_messages_eus
+
+# fast build rule for target.
+ackermann_msgs_generate_messages_eus/fast:
+	$(MAKE) -f final_race/CMakeFiles/ackermann_msgs_generate_messages_eus.dir/build.make final_race/CMakeFiles/ackermann_msgs_generate_messages_eus.dir/build
+.PHONY : ackermann_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named ackermann_msgs_generate_messages_cpp
+
+# Build rule for target.
+ackermann_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ackermann_msgs_generate_messages_cpp
+.PHONY : ackermann_msgs_generate_messages_cpp
+
+# fast build rule for target.
+ackermann_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f final_race/CMakeFiles/ackermann_msgs_generate_messages_cpp.dir/build.make final_race/CMakeFiles/ackermann_msgs_generate_messages_cpp.dir/build
+.PHONY : ackermann_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named ackermann_msgs_generate_messages_lisp
+
+# Build rule for target.
+ackermann_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ackermann_msgs_generate_messages_lisp
+.PHONY : ackermann_msgs_generate_messages_lisp
+
+# fast build rule for target.
+ackermann_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f final_race/CMakeFiles/ackermann_msgs_generate_messages_lisp.dir/build.make final_race/CMakeFiles/ackermann_msgs_generate_messages_lisp.dir/build
+.PHONY : ackermann_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named ackermann_msgs_generate_messages_nodejs
+
+# Build rule for target.
+ackermann_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ackermann_msgs_generate_messages_nodejs
+.PHONY : ackermann_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+ackermann_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f final_race/CMakeFiles/ackermann_msgs_generate_messages_nodejs.dir/build.make final_race/CMakeFiles/ackermann_msgs_generate_messages_nodejs.dir/build
+.PHONY : ackermann_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named ackermann_msgs_generate_messages_py
+
+# Build rule for target.
+ackermann_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ackermann_msgs_generate_messages_py
+.PHONY : ackermann_msgs_generate_messages_py
+
+# fast build rule for target.
+ackermann_msgs_generate_messages_py/fast:
+	$(MAKE) -f final_race/CMakeFiles/ackermann_msgs_generate_messages_py.dir/build.make final_race/CMakeFiles/ackermann_msgs_generate_messages_py.dir/build
+.PHONY : ackermann_msgs_generate_messages_py/fast
+
+#=============================================================================
 # Target rules for targets named our_odom_node
 
 # Build rule for target.
@@ -1182,71 +1247,6 @@ joy_node/fast:
 .PHONY : joy_node/fast
 
 #=============================================================================
-# Target rules for targets named ackermann_msgs_generate_messages_eus
-
-# Build rule for target.
-ackermann_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ackermann_msgs_generate_messages_eus
-.PHONY : ackermann_msgs_generate_messages_eus
-
-# fast build rule for target.
-ackermann_msgs_generate_messages_eus/fast:
-	$(MAKE) -f vesc_commander/CMakeFiles/ackermann_msgs_generate_messages_eus.dir/build.make vesc_commander/CMakeFiles/ackermann_msgs_generate_messages_eus.dir/build
-.PHONY : ackermann_msgs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named ackermann_msgs_generate_messages_cpp
-
-# Build rule for target.
-ackermann_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ackermann_msgs_generate_messages_cpp
-.PHONY : ackermann_msgs_generate_messages_cpp
-
-# fast build rule for target.
-ackermann_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f vesc_commander/CMakeFiles/ackermann_msgs_generate_messages_cpp.dir/build.make vesc_commander/CMakeFiles/ackermann_msgs_generate_messages_cpp.dir/build
-.PHONY : ackermann_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named ackermann_msgs_generate_messages_lisp
-
-# Build rule for target.
-ackermann_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ackermann_msgs_generate_messages_lisp
-.PHONY : ackermann_msgs_generate_messages_lisp
-
-# fast build rule for target.
-ackermann_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f vesc_commander/CMakeFiles/ackermann_msgs_generate_messages_lisp.dir/build.make vesc_commander/CMakeFiles/ackermann_msgs_generate_messages_lisp.dir/build
-.PHONY : ackermann_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named ackermann_msgs_generate_messages_nodejs
-
-# Build rule for target.
-ackermann_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ackermann_msgs_generate_messages_nodejs
-.PHONY : ackermann_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-ackermann_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f vesc_commander/CMakeFiles/ackermann_msgs_generate_messages_nodejs.dir/build.make vesc_commander/CMakeFiles/ackermann_msgs_generate_messages_nodejs.dir/build
-.PHONY : ackermann_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named ackermann_msgs_generate_messages_py
-
-# Build rule for target.
-ackermann_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ackermann_msgs_generate_messages_py
-.PHONY : ackermann_msgs_generate_messages_py
-
-# fast build rule for target.
-ackermann_msgs_generate_messages_py/fast:
-	$(MAKE) -f vesc_commander/CMakeFiles/ackermann_msgs_generate_messages_py.dir/build.make vesc_commander/CMakeFiles/ackermann_msgs_generate_messages_py.dir/build
-.PHONY : ackermann_msgs_generate_messages_py/fast
-
-#=============================================================================
 # Target rules for targets named vesc_commander_node
 
 # Build rule for target.
@@ -1329,6 +1329,11 @@ help:
 	@echo "... centerline_projector_node"
 	@echo "... centerline_projector_xy_node"
 	@echo "... debug_speed_decider_node"
+	@echo "... ackermann_msgs_generate_messages_eus"
+	@echo "... ackermann_msgs_generate_messages_cpp"
+	@echo "... ackermann_msgs_generate_messages_lisp"
+	@echo "... ackermann_msgs_generate_messages_nodejs"
+	@echo "... ackermann_msgs_generate_messages_py"
 	@echo "... our_odom_node"
 	@echo "... pure_pursuit"
 	@echo "... lookahead_point_generator"
@@ -1350,11 +1355,6 @@ help:
 	@echo "... diagnostic_msgs_generate_messages_py"
 	@echo "... roslint_joy"
 	@echo "... joy_node"
-	@echo "... ackermann_msgs_generate_messages_eus"
-	@echo "... ackermann_msgs_generate_messages_cpp"
-	@echo "... ackermann_msgs_generate_messages_lisp"
-	@echo "... ackermann_msgs_generate_messages_nodejs"
-	@echo "... ackermann_msgs_generate_messages_py"
 	@echo "... vesc_commander_node"
 .PHONY : help
 

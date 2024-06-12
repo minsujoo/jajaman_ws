@@ -16,13 +16,13 @@
 #define IDX_TO_2 5
 #define STEER_OFFSET_2 -10.0
 
-#define IDX_FROM_3 100
+#define IDX_FROM_3 98   //! 100
 #define IDX_TO_3 105
 #define STEER_OFFSET_3 7.0
 
-#define IDX_FROM_4 30  // new
-#define IDX_TO_4 33    // new
-#define STEER_OFFSET_4 -4  // new
+#define IDX_FROM_4 30
+#define IDX_TO_4 33
+#define STEER_OFFSET_4 -4
 
 #define IDX_FROM_5 34
 #define IDX_TO_5 40
@@ -30,7 +30,19 @@
 
 #define IDX_FROM_6 41
 #define IDX_TO_6 50
-#define STEER_OFFSET_6 -15  // -9
+#define STEER_OFFSET_6 -15
+
+#define IDX_FROM_7 62
+#define IDX_TO_7 70
+#define STEER_OFFSET_7 -15
+
+#define IDX_FROM_8 72
+#define IDX_TO_8 77
+#define STEER_OFFSET_8 15
+
+#define IDX_FROM_9 95
+#define IDX_TO_9 97
+#define STEER_OFFSET_9 15
 
 #define HIGHIST_FREQUENCY 100
 // #define CONSTANT_SPEED_MODE 0  // 0: various speed, 1: constant speed
@@ -95,6 +107,9 @@ void schedulerCallback(const ros::TimerEvent& event) {
     else if (idx >= IDX_FROM_4 && idx <= IDX_TO_4) steer_offset = STEER_OFFSET_4;
     else if (idx >= IDX_FROM_5 && idx <= IDX_TO_5) steer_offset = STEER_OFFSET_5;
     else if (idx >= IDX_FROM_6 && idx <= IDX_TO_6) steer_offset = STEER_OFFSET_6;
+    else if (idx >= IDX_FROM_7 && idx <= IDX_TO_7) steer_offset = STEER_OFFSET_7;
+    else if (idx >= IDX_FROM_8 && idx <= IDX_TO_8) steer_offset = STEER_OFFSET_8;
+    else if (idx >= IDX_FROM_9 && idx <= IDX_TO_9) steer_offset = STEER_OFFSET_9;
     else steer_offset = DEFAULT_STEER_OFFSET;
 
     if (mode) {

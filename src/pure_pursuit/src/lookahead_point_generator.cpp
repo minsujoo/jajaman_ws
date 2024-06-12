@@ -18,6 +18,7 @@ Lookahead distance is set by speed. (proportional)
 
 
 //! manual lookahead index set by index
+// index 137 ~ 145 구간은 lookahead index = 3
 #define IDX_FROM_1 137
 #define IDX_TO_1 145
 #define LOOKAHEAD_IDX_1 3
@@ -26,8 +27,12 @@ Lookahead distance is set by speed. (proportional)
 #define IDX_TO_2 60
 #define LOOKAHEAD_IDX_2 12
 
+// #define IDX_FROM_3 80
+// #define IDX_TO_3 90
+// #define LOOKAHEAD_POINT_X -4.3
+// #define LOOKAHEAD_POINT_Y 2.1
 
-// index 137 ~ 147 구간은 lookahead index = 3
+
 
 PoiPlanner::PoiPlanner(ros::NodeHandle& nh, const std::string& centerline_file) : nh_(nh) {
     // Initial speed_
@@ -75,7 +80,7 @@ void PoiPlanner::indexCallback(const std_msgs::Int16::ConstPtr& msg) {
         }
     }
     int lookahead_index = lookahead_dist / POINT_GAP;
-    //! manual setting
+    //! manual setting (lookahead index)
     if (index >= IDX_FROM_1 && index <= IDX_TO_1) {
         lookahead_dist = -1;
         lookahead_index = LOOKAHEAD_IDX_1;
@@ -97,7 +102,13 @@ void PoiPlanner::indexCallback(const std_msgs::Int16::ConstPtr& msg) {
     geometry_msgs::Point poi_msg;
     poi_msg.x = centerline_[poi_centerline_point_iterator].x;
     poi_msg.y = centerline_[poi_centerline_point_iterator].y;
-
+    // //! manual setting (lookahead point)
+    // if (index >= IDX_FROM_3 && index <= IDX_TO_3) {
+    //     lookahead_dist = -1;
+    //     poi_msg.x = LOOKAHEAD_POINT_X;
+    //     poi_msg.y = LOOKAHEAD_POINT_Y;
+    // }
+    // //!
     pub_.publish(poi_msg);
 
     ROS_INFO("Lookahead Point: (%f, %f)", poi_msg.x, poi_msg.y);

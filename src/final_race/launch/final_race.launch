@@ -1,8 +1,9 @@
 <launch>
-  <node pkg="pure_pursuit" type="lookahead_point_generator" name="lookahead_point_generator" output="screen" args="/home/jetson/jajaman_ws/centerlinefinal0607_150.csv" />
+  <node pkg="pure_pursuit" type="lookahead_point_generator" name="lookahead_point_generator" output="screen" args="/home/jetson/jajaman_ws/centerline.csv" />
   <node pkg="our_odom" type="our_odom_node" name="our_odom_node" output="screen" />
   <node pkg="speed_decider" type="speed_decider_node" name="speed_decider_node" output="screen" />
   <node pkg="pure_pursuit" type="pure_pursuit" name="pure_pursuit" output="screen" />
   <node pkg="vesc_commander" type="vesc_commander_node" name="vesc_commander_node" output="screen" />
+  <node pkg="centerline_projector" type="centerline_projector_node" name="centerline_projector_node" output="screen" />
 </launch>
 

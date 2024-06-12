@@ -1,5 +1,5 @@
 #define IDX_1 0
-#define SPEED_1 2.3  //! 1.5
+#define SPEED_1 2.3
 #define IDX_2 10
 #define SPEED_2 4.5
 #define IDX_3 15
@@ -7,31 +7,35 @@
 #define IDX_4 30
 #define SPEED_4 3
 #define IDX_5 40
-#define SPEED_5 2.5    //2
-#define IDX_6 50
-#define SPEED_6 2.5   // 2
+#define SPEED_5 2.5
+#define IDX_6 44
+#define SPEED_6 4
 #define IDX_7 60
-#define SPEED_7 1.5
-#define IDX_8 70
-#define SPEED_8 1.5
+#define SPEED_7 2
+#define IDX_8 67
+#define SPEED_8 1.8
 #define IDX_9 80
 #define SPEED_9 1.5
-#define IDX_10 83   // 85
-#define SPEED_10 4  // 3.5
-#define IDX_11 100
-#define SPEED_11 1.8  // 1.5
-#define IDX_12 110
-#define SPEED_12 2.5
-#define IDX_13 120
-#define SPEED_13 1.5
-#define IDX_14 125
-#define SPEED_14 4
-#define IDX_15 136
-#define SPEED_15 1.8
-#define IDX_16 146
-#define SPEED_16 1.8
-#define IDX_17 149
-#define SPEED_17 2.3
+#define IDX_10 83
+#define SPEED_10 6
+#define IDX_11 94
+#define SPEED_11 2
+#define IDX_12 102
+#define SPEED_12 1.8
+#define IDX_13 104
+#define SPEED_13 4
+#define IDX_14 112
+#define SPEED_14 2.5
+#define IDX_15 120
+#define SPEED_15 1.5
+#define IDX_16 125
+#define SPEED_16 4
+#define IDX_17 136
+#define SPEED_17 1.8
+#define IDX_18 146
+#define SPEED_18 1.8
+#define IDX_19 149
+#define SPEED_19 2.3
 
 
 #define DEFAULT_STEER_OFFSET -2.5 // -2.5

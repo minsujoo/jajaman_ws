@@ -1,0 +1,79 @@
+#define IDX_1 0
+#define SPEED_1 2.3
+#define IDX_2 10
+#define SPEED_2 4.5
+#define IDX_3 15
+#define SPEED_3 7.5
+#define IDX_4 30
+#define SPEED_4 3
+#define IDX_5 40
+#define SPEED_5 2.5
+#define IDX_6 44
+#define SPEED_6 4
+#define IDX_7 60
+#define SPEED_7 2
+#define IDX_8 67
+#define SPEED_8 1.8
+#define IDX_9 80
+#define SPEED_9 1.5
+#define IDX_10 83
+#define SPEED_10 6
+#define IDX_11 94
+#define SPEED_11 2
+#define IDX_12 102
+#define SPEED_12 1.8
+#define IDX_13 104
+#define SPEED_13 4
+#define IDX_14 110  // new
+#define SPEED_14 3  // new
+#define IDX_15 112
+#define SPEED_15 2.5
+#define IDX_16 120
+#define SPEED_16 1.5
+#define IDX_17 125
+#define SPEED_17 4
+#define IDX_18 136
+#define SPEED_18 1.8
+#define IDX_19 146
+#define SPEED_19 1.8
+#define IDX_20 149
+#define SPEED_20 2.3
+
+
+#define DEFAULT_STEER_OFFSET -2.5 // -2.5
+
+#define IDX_FROM_1 80
+#define IDX_TO_1 90
+#define STEER_OFFSET_1 -5
+
+#define IDX_FROM_2 0
+#define IDX_TO_2 5
+#define STEER_OFFSET_2 -10.0
+
+#define IDX_FROM_3 100
+#define IDX_TO_3 105
+#define STEER_OFFSET_3 7.0
+
+#define IDX_FROM_4 30
+#define IDX_TO_4 33
+#define STEER_OFFSET_4 -4
+
+#define IDX_FROM_5 34
+#define IDX_TO_5 40
+#define STEER_OFFSET_5 -12
+
+#define IDX_FROM_6 41
+#define IDX_TO_6 50
+#define STEER_OFFSET_6 -15
+
+#define IDX_FROM_7 62  // new
+#define IDX_TO_7 70  // new
+#define STEER_OFFSET_7 -15  // new
+
+#define IDX_FROM_8 72  // new
+#define IDX_TO_8 77  // new
+#define STEER_OFFSET_8 15  // new
+
+#define IDX_FROM_9 95  // new
+#define IDX_TO_9 100  // new
+#define STEER_OFFSET_9 15  // new
